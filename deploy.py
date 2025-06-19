@@ -14,7 +14,7 @@ import time
 import xmlrpc.client
 import yaml
 import jinja2
-from remote_pdb import set_trace
+from remote_pdb import RemotePdb
 
 
 ###############################################################################
@@ -219,7 +219,7 @@ def boot():
 
 ###############################################################################
 ###############################################################################
-set_trace()
+RemotePdb('127.0.0.1', 4444).set_trace()
 boots = {}
 templatedir = os.getcwd()
 dtemplates_yaml = "all.yaml"
