@@ -1,83 +1,83 @@
 templates:
 # Cannot use virt due to https://bugzilla.redhat.com/show_bug.cgi?id=1633328
 # a virt can be created and depend on ARM_LPAE
-  - name: qemu-arm-virt-2.11
-    arch: arm
-    devicetype: qemu
-    devicename: qemu-arm-virt-2.11
-    kernelfile: zImage
-    mach: qemu
-    qemu:
-        machine: virt-2.11
-        memory: 1024
-        cpu: cortex-a15
-        netdevice: user
-        guestfs_interface: virtio
-        console_device: ttyAMA0
-        append: "console=ttyAMA0 root=/dev/ram0"
-  - name: qemu-arm64-virt
-    arch: arm64
-    devicetype: qemu
-    devicename: qemu-arm64-virt
-    kernelfile: Image
-    mach: qemu
-    qemu:
-        machine: virt
-        memory: 2048
-        cpu: cortex-a57
-        guestfs_interface: virtio
-        netdevice: user
-        console_device: ttyAMA0
-        append: "console=ttyAMA0 root=/dev/ram0"
-  - name: QEMU PPC64 pseries
-    arch: powerpc64
-    larch: powerpc
-    devicetype: qemu
-    devicename: qemu-ppc64-pseries
-    kernelfile: vmlinux
-    mach: powerpc64
-    qemu:
-        machine: pseries
-        cpu: POWER8
-        model: model=e1000
-        netdevice: user
-        guestfs_interface: scsi
-        console_device: hvc0
-        append: "console=hvc0 root=/dev/ram0"
-        no_kvm: True
-  - name: QEMU sun4u
-    arch: sparc64
-    larch: sparc
-    devicetype: qemu
-    devicename: qemu-sun4u
-    kernelfile: vmlinux
-    mach: sparc64
-    qemu:
-        machine: sun4u
-        memory: 384
-        model: model=sunhme
-        guestfs_interface: ide
-        netdevice: user
-        console_device: ttyS0
-        append: "console=ttyS0 root=/dev/ram0"
-        no_kvm: True
-  - name: qemu i386
-    arch: x86
-    devicetype: qemu
-    devicename: qemu-i386
-    kernelfile: bzImage
-    mach: x86
-    qemu:
-        machine: pc
-        memory: 2048
-        guestfs_interface: ide
-        cpu: qemu32
-        netdevice: user
-        model: model=e1000
-        console_device: ttyS0
-        append: "console=ttyS0 root=/dev/ram0"
-        extra_options:
-        - '-vga virtio'
+#  - name: qemu-arm-virt-2.11
+#    arch: arm
+#    devicetype: qemu
+#    devicename: qemu-arm-virt-2.11
+#    kernelfile: zImage
+#    mach: qemu
+#    qemu:
+#        machine: virt-2.11
+#        memory: 1024
+#        cpu: cortex-a15
+#        netdevice: user
+#        guestfs_interface: virtio
+#        console_device: ttyAMA0
+#        append: "console=ttyAMA0 root=/dev/ram0"
+#  - name: qemu-arm64-virt
+#    arch: arm64
+#    devicetype: qemu
+#    devicename: qemu-arm64-virt
+#    kernelfile: Image
+#    mach: qemu
+#    qemu:
+#        machine: virt
+#        memory: 2048
+#        cpu: cortex-a57
+#        guestfs_interface: virtio
+#        netdevice: user
+#        console_device: ttyAMA0
+#        append: "console=ttyAMA0 root=/dev/ram0"
+#  - name: QEMU PPC64 pseries
+#    arch: powerpc64
+#    larch: powerpc
+#    devicetype: qemu
+#    devicename: qemu-ppc64-pseries
+#    kernelfile: vmlinux
+#    mach: powerpc64
+#    qemu:
+#        machine: pseries
+#        cpu: POWER8
+#        model: model=e1000
+#        netdevice: user
+#        guestfs_interface: scsi
+#        console_device: hvc0
+#        append: "console=hvc0 root=/dev/ram0"
+#        no_kvm: True
+#  - name: QEMU sun4u
+#    arch: sparc64
+#    larch: sparc
+#    devicetype: qemu
+#    devicename: qemu-sun4u
+#    kernelfile: vmlinux
+#    mach: sparc64
+#    qemu:
+#        machine: sun4u
+#        memory: 384
+#        model: model=sunhme
+#        guestfs_interface: ide
+#        netdevice: user
+#        console_device: ttyS0
+#        append: "console=ttyS0 root=/dev/ram0"
+#        no_kvm: True
+#  - name: qemu i386
+#    arch: x86
+#    devicetype: qemu
+#    devicename: qemu-i386
+#    kernelfile: bzImage
+#    mach: x86
+#    qemu:
+#        machine: pc
+#        memory: 2048
+#        guestfs_interface: ide
+#        cpu: qemu32
+#        netdevice: user
+#        model: model=e1000
+#        console_device: ttyS0
+#        append: "console=ttyS0 root=/dev/ram0"
+#        extra_options:
+#        - '-vga virtio'
   - name: qemu x86_64
     arch: amd64
     devicetype: qemu
@@ -95,13 +95,13 @@ templates:
         append: "console=ttyS0 root=/dev/ram0"
         extra_options:
         - '-vga virtio'
-  - name: d2500cc
-    arch: x86_64
-    devicetype: d2500cc
-    kernelfile: bzImage
-    mach: x86_64
-    configs:
-    boot-method: grub
-    console_device: ttyS2
-    tags:
-      - ok
+#  - name: d2500cc
+#    arch: x86_64
+#    devicetype: d2500cc
+#    kernelfile: bzImage
+#    mach: x86_64
+#    configs:
+#    boot-method: grub
+#    console_device: ttyS2
+#    tags:
+#      - ok
