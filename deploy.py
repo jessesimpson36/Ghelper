@@ -269,7 +269,9 @@ else:
     tlabs["labs"] = []
     tlab = {}
     tlab["name"] = "Gentoo"
-    tlab["lavauri"] = data["buildbot"]["uri"]
+    lavauri = data["buildbot"]["uri"]
+    lavauri = lavauri.replace("https://", "").replace("http://", "")
+    tlab["lavauri"] = "http://" + data["buildbot"]["username"] + ":" + data["buildbot"]["token"] + "@" + lavauri + "/RPC2"
     tlabs["labs"].append(tlab)
 
 relpath = args.relpath
