@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DEBUG=0
-RFS_BASE=http://gentoo-mirror.flux.utah.edu/
+RFS_BASE=http://www.gtlib.gatech.edu/pub/gentoo/
 
 debug() {
   if [ $DEBUG -ge 1 ];then
