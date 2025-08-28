@@ -104,6 +104,8 @@ build() {
     cat $FDIR/.config
     echo ===== END DEFCONFIG =====
 
+    echo SHELL: $SHELL
+
     if [ -e "$BCDIR/config" ];then
       cp $FDIR/.config $FDIR/.config.old
       echo "DEBUG: config hacks"
