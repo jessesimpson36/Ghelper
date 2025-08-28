@@ -109,17 +109,17 @@ build() {
         echo "DEBUG: add config $config"
         while IFS= read -r line || [[ -n $line ]]; do
           OPTION="$(echo $line | cut -d '=' -f1)"
-          sed -i -E "s/.*$OPTION(=| is).*/$line/" $FDIR/.config
+          sed -i -E "s/.*$OPTION(=| is not set).*/$line/" $FDIR/.config
         done < $BCDIR/config/$config
       done
       echo JESSE DEBUG BEFORE olddefconfig: .config 
-      cat $FDIR/.config | grep GENERIC_CPU
-      cat $FDIR/.config | grep X86_64_VERSION
+      cat $FDIR/.config | grep GENERIC_CPU || true
+      cat $FDIR/.config | grep X86_64_VERSION || true
       $MAKEFUNC $MAKEOPTS olddefconfig >> $FDIR/build.log
       diff -u $FDIR/.config.old $FDIR/.config || true
       echo JESSE DEBUG AFTER olddefconfig: .config 
-      cat $FDIR/.config | grep GENERIC_CPU
-      cat $FDIR/.config | grep X86_64_VERSION
+      cat $FDIR/.config | grep GENERIC_CPU || true
+      cat $FDIR/.config | grep X86_64_VERSION || true
     fi
 
     echo "DO: build"
