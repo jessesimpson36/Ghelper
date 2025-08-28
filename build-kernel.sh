@@ -107,9 +107,9 @@ build() {
       for config in $(ls $BCDIR/config)
       do
         echo "DEBUG: add config $config"
-        while IFS= read -r line; do
+        while IFS= read -r line || [[ -n $line ]]; do
           OPTION="$(echo $line | cut -d '=' -f1)"
-          sed -i "s/.*$OPTION(=| is).*/$line/" $FDIR/.config
+          sed -i -E "s/.*$OPTION(=| is).*/$line/" $FDIR/.config
         done < $BCDIR/config/$config
       done
       echo JESSE DEBUG BEFORE olddefconfig: .config 
