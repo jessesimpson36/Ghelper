@@ -100,6 +100,9 @@ build() {
 
     echo "DO: generate config from defconfig"
     $MAKEFUNC $MAKEOPTS $defconfig | tee --append $FDIR/build.log
+    echo ===== DEFCONFIG =====
+    cat $FDIR/.config
+    echo ===== END DEFCONFIG =====
 
     if [ -e "$BCDIR/config" ];then
       cp $FDIR/.config $FDIR/.config.old
@@ -110,7 +113,6 @@ build() {
         while IFS= read -r line || [[ -n $line ]]; do
           echo LINE=$line
           OPTION="$(echo $line | cut -d '=' -f1)"
-          cat $FDIR/.config | grep "$OPTION" || true
           sed -i -E "s/.*$OPTION(=| is not set).*/$line/" $FDIR/.config
         done < $BCDIR/config/$config
       done
