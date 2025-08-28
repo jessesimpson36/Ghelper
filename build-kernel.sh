@@ -110,6 +110,7 @@ build() {
         while IFS= read -r line || [[ -n $line ]]; do
           echo LINE=$line
           OPTION="$(echo $line | cut -d '=' -f1)"
+          cat $FDIR/.config | grep "$OPTION" || true
           sed -i -E "s/.*$OPTION(=| is not set).*/$line/" $FDIR/.config
         done < $BCDIR/config/$config
       done
