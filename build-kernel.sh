@@ -113,11 +113,13 @@ build() {
         done < $BCDIR/config/$config
       done
       echo JESSE DEBUG BEFORE olddefconfig: .config 
-      cat $FDIR/.config | grep -e GENERIC_CPU -e X86_64_VERSION
+      cat $FDIR/.config | grep GENERIC_CPU
+      cat $FDIR/.config | grep X86_64_VERSION
       $MAKEFUNC $MAKEOPTS olddefconfig >> $FDIR/build.log
       diff -u $FDIR/.config.old $FDIR/.config || true
       echo JESSE DEBUG AFTER olddefconfig: .config 
-      cat $FDIR/.config | grep -e GENERIC_CPU -e X86_64_VERSION
+      cat $FDIR/.config | grep GENERIC_CPU
+      cat $FDIR/.config | grep X86_64_VERSION
     fi
 
     echo "DO: build"
