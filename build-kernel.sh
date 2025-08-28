@@ -108,6 +108,7 @@ build() {
       do
         echo "DEBUG: add config $config"
         while IFS= read -r line || [[ -n $line ]]; do
+          echo LINE=$line
           OPTION="$(echo $line | cut -d '=' -f1)"
           sed -i -E "s/.*$OPTION(=| is not set).*/$line/" $FDIR/.config
         done < $BCDIR/config/$config
