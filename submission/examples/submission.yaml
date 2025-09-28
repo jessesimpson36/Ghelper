@@ -14,7 +14,7 @@ checkouts:
   - id: "gkci:linux-8ad6ee8c16640c433f2c8b12480c69aaf5154f66"
     origin: "gkci"
     tree_name: "mainline"
-    git_repository_url: "http://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.16.8-9.xz"
+    git_repository_url: "https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.16.8-9.xz" # validation script doesn't allow http (only https) but cdn.kernel.org might not support https
     git_repository_branch: "6.16"
     git_repository_branch_tip: false
     patchset_files:
@@ -84,7 +84,7 @@ builds:
     origin: "gkci"
     checkout_id: "gkci:linux-8ad6ee8c16640c433f2c8b12480c69aaf5154f66"
     architecture: "x86_64"
-    start_time: "2025-09-25T12:12:55,179632784+00:00"
+    start_time: "2025-09-25T12:12:55+00:00"
     status: "PASS"
     duration: 519.154513
     command: "/bin/bash build-kernel.sh amd64 6.16:amd64:gcc 76"
@@ -95,7 +95,7 @@ tests:
   - id: "gkci:builders-26-build-76"
     origin: "gkci"
     build_id: "gkci:builders-26-build-76"
-    start_time: "2025-09-25T12:12:55,179632784+00:00"
+    start_time: "2025-09-25T12:12:55+00:00"
     status: "PASS"
     log_excerpt: "{'gentoo': {2053: {'devicename': 'qemu-x86_64', 'health': 'Complete', 'state': 'Finished'}}}"
 
