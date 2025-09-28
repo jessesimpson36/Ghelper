@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r submission/validate/requirements.txt
+        pip install -r submission/examples/validate/requirements.txt
     - name: Validate expected submission
       run: |
         cd submission
