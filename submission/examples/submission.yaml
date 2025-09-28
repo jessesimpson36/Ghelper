@@ -1,0 +1,56 @@
+version:
+  major: 5
+  minor: 3
+
+# trying to use https://gkernelci.gentoo.org/#/builders/26/builds/76 as an example
+checkouts:
+  - id: "gkci:8ad6ee8c16640c433f2c8b12480c69aaf5154f66"
+    origin: "gkci"
+    tree_name: "mainline"
+    git_repository_url: "http://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.16.8-9.xz"
+    git_repository_branch: "6.16"
+    git_repository_branch_tip: false
+    patchset_files:
+      - name: 1000_linux-6.16.1.patch
+        url: "https://gitweb.gentoo.org/proj/linux-patches.git/plain/1000_linux-6.16.1.patch?h=6.16"
+    git_commit_hash: "a3c256e1f2e1b60c0d02a2cf19e76b4dcf0c5df3"
+    valid: true
+
+builds:
+  - id: "ci1:build-123"
+    origin: "ci1"
+    checkout_id: "ci1:checkout-123"
+    architecture: "x86_64"
+    start_time: "2025-09-27T12:00:00+00:00"
+    status: "PASS"
+
+tests:
+  - id: "ci1:test-123"
+    origin: "ci1"
+    build_id: "ci1:build-123"
+    path: "ltp.sem01"
+    start_time: "2025-09-27T12:30:00+00:00"
+    status: "FAIL"
+    log_excerpt: "kernel BUG at net/core/dev.c:2648!"
+
+issues:
+  - id: "ci1:issue-1"
+    version: 1
+    origin: "ci1"
+    categories:
+      - "runtime.oops"
+    report_url: "https://bugzilla.kernel.org/show_bug.cgi?id=207065"
+    report_subject: "Kernel crash in net/core/dev.c"
+    culprit:
+      code: true
+      tool: false
+      harness: false
+
+incidents:
+  - id: "ci1:incident-1"
+    origin: "ci1"
+    issue_id: "ci1:issue-1"
+    issue_version: 1
+    build_id: "ci1:build-123"
+    test_id: "ci1:test-123"
+    present: true
