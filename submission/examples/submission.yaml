@@ -2,6 +2,12 @@ version:
   major: 5
   minor: 3
 
+# TODO: builds should include timestamps of every step for the _timestamp field
+# TODO: log_url should be hosted somewhere and permanently accessible
+# TODO: figure out what to do with issues and incidents. are these even relevant to gkci?
+# TODO: is this the correct use of "id" fields?
+# TODO: is the git_repository_url accurate in the first checkout, since we aren't retrieving via git?
+
 # trying to use https://gkernelci.gentoo.org/#/builders/26/builds/76 as an example
 checkouts:
   - id: "gkci:linux-8ad6ee8c16640c433f2c8b12480c69aaf5154f66"
@@ -73,12 +79,16 @@ checkouts:
     git_commit_message: "Add fix for experimental patches\n\nSigned-off-by: Arisu Tachibana <arisu.tachibana@miraclelinux.com>"
 
 builds:
-  - id: "ci1:build-123"
-    origin: "ci1"
-    checkout_id: "ci1:checkout-123"
+  - id: "gkci:linux-8ad6ee8c16640c433f2c8b12480c69aaf5154f66"
+    origin: "gkci"
+    checkout_id: "gkci:linux-8ad6ee8c16640c433f2c8b12480c69aaf5154f66"
     architecture: "x86_64"
     start_time: "2025-09-25T12:12:55,179632784+00:00"
     status: "PASS"
+    duration: 519.154513
+    command: "/bin/bash build-kernel.sh amd64 6.16:amd64:gcc 76"
+    compiler: "gcc"
+    log_url: https://gkernelci.gentoo.org/api/v2/logs/29973/raw_inline
 
 tests:
   - id: "gkci:builders-26-build-76"
