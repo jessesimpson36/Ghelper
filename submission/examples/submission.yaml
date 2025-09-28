@@ -7,6 +7,7 @@ version:
 # TODO: figure out what to do with issues and incidents. are these even relevant to gkci?
 # TODO: is this the correct use of "id" fields?
 # TODO: is the git_repository_url accurate in the first checkout, since we aren't retrieving via git?
+# TODO: patchset_hash is missing, not sure how to generate it
 
 # trying to use https://gkernelci.gentoo.org/#/builders/26/builds/76 as an example
 checkouts:
