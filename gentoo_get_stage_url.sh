@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 
 DEBUG=0
 RFS_BASE=http://www.gtlib.gatech.edu/pub/gentoo/
